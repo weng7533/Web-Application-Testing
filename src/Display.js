@@ -5,8 +5,8 @@ export default (props) => {
 
     return (
         <div>
-            <div>ball: {props.balls}</div>
-            <div>strikes: {props.strikes}</div>
+            <div>Ball: {props.balls}</div>
+            <div>Strikes: {props.strikes}</div>
         </div>
     )
 

@@ -1,45 +1,52 @@
 import React from 'react';
-
-import * as rtl from '@testing-library/react';
+import Display from './Display';
+import Dashboard from './Dashboard';
+import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import App from './App';
 
 
 
-it('renders "all about kittens" text', () => {
-  const wrapper = rtl.render(<App />);
-  const hasKittensText = wrapper.getByText(/About/i);
-  expect(hasKittensText).toBeInTheDocument();
-  // expect(wrapper.queryByText(/all about kittens/i));
+
+
+test('Ball hdader is found', () => {
+  const { getByText } = render(<Display />);
+
+  // assert that the "Ball" header is on the DOM
+  getByText(/Ball/i);
 });
 
 
 
 
+test('Strikes hdader is found', () => {
+  const { getByText } = render(<Display />);
+
+  // assert that the "Strikes" header is on the DOM
+  getByText(/Strikes/i);
+});
 
 
+test('Strike button is found', () => {
+  const { getByTestId } = render(<Dashboard />);
+  getByTestId(/strike/i);
+});
 
 
-// afterEach(rtl.cleanup);
+test('Ball button is found', () => {
+  const { getByTestId } = render(<Dashboard />);
+  getByTestId(/Ball/i);
+});
 
-// it('renders without crashing', () => {
-//   const wrapper = rtl.render(
-//     <span className="greet">hello world</span>
-//   );
+test('Foul button is found', () => {
+  const { getByTestId } = render(<Dashboard />);
+  getByTestId(/Foul/i);
+});
 
-//   // console.log(wrapper.debug())
-//   const element = wrapper.queryByText(/hello/i);
-//   const true_element = true;
-//   expect(element).toBeTruthy();
-//   expect(true_element).toBeTruthy();
-
-
-
-// });
-
-
-
-
+test('Hit button is found', () => {
+  const { getByTestId } = render(<Dashboard />);
+  getByTestId(/Hit/i);
+});
 
 
 

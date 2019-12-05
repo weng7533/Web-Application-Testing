@@ -44,10 +44,10 @@ export default () => {
         <div>
             <Display balls={balls} strikes={strikes} />
             <div onSubmit={handleSubmit}>
-                <button onClick={strikeClick}>Strike</button>
-                <button onClick={ballClick}>Ball</button>
-                <button onClick={foulClick}>Foul</button>
-                <button onClick={HitClick}>Hit</button>
+                <button data-testid="Strike" onClick={strikeClick}>Strike</button>
+                <button data-testid="Ball" onClick={ballClick}>Ball</button>
+                <button data-testid="Foul" onClick={foulClick}>Foul</button>
+                <button data-testid="Hit" onClick={HitClick}>Hit</button>
             </div>
         </div>
     )
