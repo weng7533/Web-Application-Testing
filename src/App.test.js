@@ -1,7 +1,7 @@
 import React from 'react';
 import Display from './Display';
 import Dashboard from './Dashboard';
-import { render } from '@testing-library/react';
+import * as rtl from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import App from './App';
 
@@ -9,43 +9,63 @@ import App from './App';
 
 
 
-test('Ball hdader is found', () => {
-  const { getByText } = render(<Display />);
+test('Ball header is found', () => {
+  const wrapper = rtl.render(<Display />);
+  const strikes = wrapper.getByText(/Strikes/i);
+  expect(strikes.textContent).toMatch(/Strikes/i);
 
-  // assert that the "Ball" header is on the DOM
-  getByText(/Ball/i);
 });
 
 
 
 
-test('Strikes hdader is found', () => {
-  const { getByText } = render(<Display />);
-
+test('Strikes header is found', () => {
+  const wrapper = rtl.render(<Display />);
+  const strikes = wrapper.getByText(/Strikes/i);
+  expect(strikes.textContent).toMatch(/Strikes/i);
   // assert that the "Strikes" header is on the DOM
-  getByText(/Strikes/i);
+  // getByText(/Strikes/i).toBeInDocument();
+
 });
 
 
 test('Strike button is found', () => {
-  const { getByTestId } = render(<Dashboard />);
-  getByTestId(/strike/i);
+  // const { getByTestId } = rtl.render(<Dashboard />);
+  // getByTestId(/strike/i).toMatch(/strike/i);
+
+  const wrapper = rtl.render(<Dashboard />);
+  const strikes = wrapper.getByTestId(/strike/i);
+  expect(strikes.textContent).toMatch(/strike/i);
 });
 
 
 test('Ball button is found', () => {
-  const { getByTestId } = render(<Dashboard />);
-  getByTestId(/Ball/i);
+  // const { getByTestId } = rtl.render(<Dashboard />);
+  // getByTestId(/Ball/i).toMatch(/Ball/i);
+
+  const wrapper = rtl.render(<Dashboard />);
+  const strikes = wrapper.getByTestId(/Ball/i);
+  expect(strikes.textContent).toMatch(/Ball/i);
 });
 
 test('Foul button is found', () => {
-  const { getByTestId } = render(<Dashboard />);
-  getByTestId(/Foul/i);
+  // const { getByTestId } = rtl.render(<Dashboard />);
+  // getByTestId(/Foul/i).toMatch(/Foul/i);
+
+  const wrapper = rtl.render(<Dashboard />);
+  const strikes = wrapper.getByTestId(/Foul/i);
+  expect(strikes.textContent).toMatch(/Foul/i);
 });
 
 test('Hit button is found', () => {
-  const { getByTestId } = render(<Dashboard />);
-  getByTestId(/Hit/i);
+
+
+  // const { getByTestId } = rtl.render(<Dashboard />);
+  // getByTestId(/Hit/i).toMatch(/Hit/i);
+
+  const wrapper = rtl.render(<Dashboard />);
+  const strikes = wrapper.getByTestId(/Hit/i);
+  expect(strikes.textContent).toMatch(/Hit/i);
 });
 
 
