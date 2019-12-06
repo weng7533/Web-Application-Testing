@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Display from './Display';
-
+import { useLocalStorage } from '../src/hooks/useLocalStorage';
 export default () => {
+    const [balls, setBalls] = useLocalStorage('ballsCount', 0);
+    const [strikes, setStrkes] = useLocalStorage('strikesCount', 0)
 
-    const [balls, setBalls] = useState(0)
-    const [strikes, setStrkes] = useState(0)
+
+
 
     useEffect(() => {
         if (balls === 4 || strikes === 3) {
